@@ -1,0 +1,91 @@
+{
+  "name": "faahhh-fail-sound",
+  "displayName": "FAAAHHH Fail Sound",
+  "description": "Plays FAAAAHHH sound when your tests fail",
+  "version": "0.0.4",
+  "publisher": "phoenix-146",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "fail",
+    "test",
+    "sound",
+    "jest",
+    "pytest",
+    "developer-tools"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:faahhh.toggle",
+    "onCommand:faahhh.runTest"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "FAAAHHH",
+      "properties": {
+        "faahhh.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the failure sound"
+        },
+        "faahhh.cooldown": {
+          "type": "number",
+          "default": 3000,
+          "description": "Cooldown between sounds in milliseconds"
+        },
+        "faahhh.command": {
+          "type": "string",
+          "default": "npm test",
+          "description": "Command to run when using 'faahhh run'"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "faahhh.toggle",
+        "title": "Toggle FAAAAHHH Sound"
+      },
+      {
+        "command": "faahhh.runTest",
+        "title": "faahhh run"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "eslint": "^8.50.0"
+  },
+  "files": [
+    "out",
+    "media"
+  ],
+  "icon": "media/icon.png",
+  "author": {
+    "name": "Sheikh Siam Najat",
+    "email": "2203146@student.ruet.ac.bd",
+    "url": "https://github.com/najat-ttt"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/najat-ttt/faahhh-test-fail"
+  },
+  "homepage": "https://github.com/najat-ttt/faahhh-test-fail",
+  "bugs": {
+    "url": "https://github.com/najat-ttt/faahhh-test-fail/issues"
+  }
+}
