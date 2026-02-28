@@ -75,6 +75,11 @@ sudo apt install alsa-utils
 
 ## Release Notes
 
+### 0.0.5
+
+- Added Terminal command failure detection using VS Code shell integration
+- Improved: More accurate failure triggering
+
 ### 0.0.4
 
 - Added custom command support (`faahhh.command`)

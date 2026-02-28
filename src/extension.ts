@@ -10,7 +10,7 @@ let statusBarItem: vscode.StatusBarItem;
 
 export function activate(context: vscode.ExtensionContext) {
 
-    console.log('FAAAHHH extension activated');
+    console.log('FAAAHHH !!!');
 
     // Status bar
     statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
@@ -33,6 +33,21 @@ export function activate(context: vscode.ExtensionContext) {
             triggerSound(context);
         }
     });
+
+    // Terminal shell execution
+    const startExecListener = vscode.window.onDidStartTerminalShellExecution(event => {
+        // Will work on it later if needed...
+    });
+
+    const endExecListener = vscode.window.onDidEndTerminalShellExecution(event => {
+        const exitCode = event.exitCode;
+
+        if (typeof exitCode === 'number' && exitCode !== 0) {
+            triggerSound(context);
+        }
+    });
+
+    context.subscriptions.push(startExecListener, endExecListener);
 
     // Diagnostic detection (debounced)
     // Debounce timer for diagnostics
@@ -131,6 +146,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(
         taskListener,
+        endExecListener,
         diagnosticListener,
         toggleCommand,
         runTestCommand,
@@ -142,7 +158,7 @@ function updateStatusBar() {
     const config = vscode.workspace.getConfiguration('faahhh');
     const enabled = config.get<boolean>('enable', true);
 
-    statusBarItem.text = enabled ? '$(bell) FAAA ON' : '$(mute) FAAA OFF';
+    statusBarItem.text = enabled ? '$(bell) FAAA ON' : '$(bell-slash) FAAA OFF';
 }
 
 function triggerSound(context: vscode.ExtensionContext) {

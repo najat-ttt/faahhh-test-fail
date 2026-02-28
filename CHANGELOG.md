@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [0.0.4] - Latest
+## [0.0.5] - Latest
+
+### Added
+
+- Terminal command failure detection using VS Code shell integration
+
+### Improved
+
+- More accurate failure triggering
+
+## [0.0.4]
 
 ### Added
 

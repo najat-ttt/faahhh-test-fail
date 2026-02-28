@@ -2,20 +2,27 @@
   "name": "faahhh-fail-sound",
   "displayName": "FAAAHHH Fail Sound",
   "description": "Plays FAAAAHHH sound when your tests fail",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "phoenix-146",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
+    "Testing",
+    "Programming Languages",
     "Other"
   ],
   "keywords": [
     "fail",
+    "test-fail",
+    "error",
     "test",
     "sound",
     "jest",
     "pytest",
+    "debug",
+    "notification",
+    "terminal",
     "developer-tools"
   ],
   "activationEvents": [
@@ -54,7 +61,15 @@
         "command": "faahhh.runTest",
         "title": "faahhh run"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "faahhh.runTest",
+          "when": "workspaceFolderCount > 0"
+        }
+      ]
+    }  
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
